@@ -34,6 +34,38 @@ package librarymanagement {
     implicit class RichUpdateReport(val _ur: UpdateReport) extends AnyVal {
       def configuration(c: ConfigRef) = _ur configuration c.name
     }
+
+    type Disabled = sbt.CrossVersion.Disabled.type
+    def Disabled() = sbt.CrossVersion.Disabled
+
+    type ModuleID = sbt.ModuleID
+    val ModuleID = sbt.ModuleID
+
+    val Developer = sbt.Developer
+    val ScmInfo = sbt.ScmInfo
+
+    object syntax {
+      type ExclusionRule = sbt.SbtExclusionRule
+      val ExclusionRule = sbt.SbtExclusionRule
+    }
+
+    object compat {
+      /**
+       * This function is implemented here and for 1.0  to go from un-crossversioned Maven coordinates to a
+       * (cross-versioned) Ivy-style exclusion-rule.
+       */
+      def exclude(org: String,
+                  name: String,
+                  crossVersion: CrossVersion)(
+          implicit
+          crossVersionFn: (CrossVersion, String) ⇒ String
+      ): sbt.ExclusionRule =
+        sbt.ExclusionRule(
+          org,
+          crossVersionFn(crossVersion, name)
+        )
+    }
+
   }
 
   final case class ConfigRef(name: String)
