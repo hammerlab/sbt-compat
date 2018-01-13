@@ -1,8 +1,10 @@
 # [sbt-compat][] [![travis-badge][]][travis]
 
-[sbt-compat]:         https://github.com/dwijnand/sbt-compat
-[travis]:          https://travis-ci.org/dwijnand/sbt-compat
-[travis-badge]:    https://travis-ci.org/dwijnand/sbt-compat.svg?branch=master
+[sbt-compat]:         https://github.com/hammerlab/sbt-compat
+[travis]:          https://travis-ci.org/hammerlab/sbt-compat
+[travis-badge]:    https://travis-ci.org/hammerlab/sbt-compat.svg?branch=master
+
+*Fork of [dwijnand/sbt-compat](https://github.com/dwijnand/sbt-compat)*
 
 `sbt-compat` is an [sbt](http://www.scala-sbt.org/) plugin that backports parts of sbt 1's public API on top of
 sbt 0.13 implementation.
@@ -16,7 +18,7 @@ versions of Scala.
 Add this plugin to your sbt plugin (in `build.sbt`, **NOT** `project/plugins.sbt`):
 
     libraryDependencies += Defaults.sbtPluginExtra(
-      "com.dwijnand" % "sbt-compat" % "1.0.0",
+      "org.hammerlab" % "sbt-compat" % "1.1.1",
       (sbtBinaryVersion in pluginCrossBuild).value,
       (scalaBinaryVersion in update).value
     )
@@ -24,7 +26,7 @@ Add this plugin to your sbt plugin (in `build.sbt`, **NOT** `project/plugins.sbt
 Once sbt 0.13.17 is released with the fix to [sbt/sbt#3393](https://github.com/sbt/sbt/issues/3393) this will
 simplify to:
 
-    addSbtPlugin("com.dwijnand" % "sbt-compat" % "1.0.0")
+    addSbtPlugin("org.hammerlab" % "sbt-compat" % "1.1.1")
 
 ## Usage
 

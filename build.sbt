@@ -1,13 +1,13 @@
 val sbtcompat = project in file(".")
 
-organization in ThisBuild := "com.dwijnand"
-        name              := "sbt-compat"
+organization in ThisBuild := "org.hammerlab.sbt"
+        name              := "compat"
     licenses in ThisBuild := Seq(("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0")))
  description in ThisBuild := "A compatibility library; backports parts of sbt 1's public API in sbt 0.13"
   developers in ThisBuild := List(Developer("dwijnand", "Dale Wijnand", "dale wijnand gmail com", url("https://dwijnand.com")))
    startYear in ThisBuild := Some(2017)
     homepage in ThisBuild := scmInfo.value map (_.browseUrl)
-     scmInfo in ThisBuild := Some(ScmInfo(url("https://github.com/dwijnand/sbt-compat"), "scm:git:git@github.com:dwijnand/sbt-compat.git"))
+     scmInfo in ThisBuild := Some(ScmInfo(url("https://github.com/hammerlab/sbt-compat"), "scm:git:git@github.com:hammerlab/sbt-compat.git"))
 
        sbtPlugin           := true
       sbtVersion in Global := "0.13.8" // must be Global, otherwise ^^ won't change anything
